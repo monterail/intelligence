@@ -14,7 +14,7 @@ class MethodChannelIntelligence extends IntelligencePlatform {
   final methodChannel = const MethodChannel('intelligence');
 
   @visibleForTesting
-  final eventChannel = const EventChannel('intelligence');
+  final linksChannel = const EventChannel('intelligence/links');
 
   @override
   Future<void> populateIntelligence(List<Representable> items) async {
@@ -25,10 +25,8 @@ class MethodChannelIntelligence extends IntelligencePlatform {
   }
 
   @override
-  Stream<Representable> selectedStream() =>
-      eventChannel.receiveBroadcastStream().map(
-            (representableJson) => Representable.fromJson(representableJson),
-          );
+  Stream<String> selectedStream() =>
+      linksChannel.receiveBroadcastStream().map((item) => item.toString());
 }
 
 extension on List<Representable> {

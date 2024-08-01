@@ -18,6 +18,7 @@ class MyApp extends StatefulWidget {
 
 class _MyAppState extends State<MyApp> {
   final _intelligencePlugin = Intelligence();
+  final _receivedItems = [];
 
   @override
   void initState() {
@@ -25,14 +26,16 @@ class _MyAppState extends State<MyApp> {
     unawaited(init());
   }
 
-  // Platform messages are asynchronous, so we initialize in an async method.
   Future<void> init() async {
-    // Platform messages may fail, so we use a try/catch PlatformException.
-    // We also handle the message potentially returning null.
     try {
       await _intelligencePlugin.populateIntelligence(const [
         Representable(representation: 'John Doe', id: 'ABC1'),
       ]);
+      _intelligencePlugin.selectedStream().listen((item) {
+        setState(() {
+          _receivedItems.add(item);
+        });
+      });
     } on PlatformException catch (e) {
       debugPrint(e.toString());
     }
@@ -43,9 +46,16 @@ class _MyAppState extends State<MyApp> {
     return MaterialApp(
       home: Scaffold(
         appBar: AppBar(
-          title: const Text('Plugin example app'),
+          title: const Text('Intelligence example app'),
         ),
-        body: const Placeholder(),
+        body: Center(
+          child: ListView.builder(
+            itemCount: _receivedItems.length,
+            itemBuilder: (_, index) => ListTile(
+              title: Text(_receivedItems[index]),
+            ),
+          ),
+        ),
       ),
     );
   }

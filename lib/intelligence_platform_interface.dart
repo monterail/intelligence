@@ -29,7 +29,7 @@ abstract class IntelligencePlatform extends PlatformInterface {
         'populateIntelligence() has not been implemented.');
   }
 
-  Stream<Representable> selectedStream() {
+  Stream<String> selectedStream() {
     throw UnimplementedError('selectedStream() has not been implemented.');
   }
 }
