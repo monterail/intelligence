@@ -10,9 +10,7 @@ import AppIntents
 import intelligence
 
 @available(iOS 16, *)
-struct OpenRepresentable: AppIntent {
-  static let openAppWhenRun = true
-  
+struct OpenRepresentable: OpenIntent {
   static var title: LocalizedStringResource = "Open Representable"
   
   @Parameter(title: "Item")

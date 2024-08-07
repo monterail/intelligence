@@ -5,7 +5,7 @@ import intelligence
 @available(iOS 16.0, *)
 struct RepresentableQuery: EntityQuery {
   func entities(for identifiers: [String]) async throws -> [RepresentableEntity] {
-    return IntelligencePlugin.storage.get().map() { entity in
+    return IntelligencePlugin.storage.get(for: identifiers).map() { entity in
       return RepresentableEntity(
         displayRepresentation: DisplayRepresentation(stringLiteral: "Repr"),
         id: entity.id,

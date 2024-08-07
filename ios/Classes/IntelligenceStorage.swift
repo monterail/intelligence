@@ -68,4 +68,25 @@ public struct IntelligenceStorage {
       return []
     }
   }
+  
+  public func get(for identifiers: [String]) -> [(id: String, representation: String)] {
+    do {
+      let db = try getDb()
+      let entitiesTable = try getEntitiesTable(db: db)
+      
+      let externalId = SQLite.Expression<String>("externalId")
+      let representation = SQLite.Expression<String>("representation")
+      var entities: [(id: String, representation: String)] = []
+      for entity in try db.prepare(entitiesTable.filter(identifiers.contains(externalId))) {
+        entities.append((
+          id: entity[externalId],
+          representation: entity[representation]
+        ))
+      }
+      return entities
+    } catch {
+      print("Unable to list entities for intelligence")
+      return []
+    }
+  }
 }
