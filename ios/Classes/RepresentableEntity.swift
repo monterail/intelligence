@@ -6,14 +6,14 @@ import AppIntents
 struct RepresentableEntity: AppEntity {
   static var defaultQuery: RepresentableQuery = RepresentableQuery()
   
-  static var typeDisplayRepresentation = TypeDisplayRepresentation(name: "Items")
+  static var typeDisplayRepresentation = TypeDisplayRepresentation(name: "Item")
   
-  var displayRepresentation: DisplayRepresentation
+  var displayRepresentation: DisplayRepresentation {
+    DisplayRepresentation(stringLiteral: representation)
+  }
   
   let id: String
-  
-  @Property(title: "Name")
-  var representation: String
+  let representation: String
 }
 
 extension RepresentableEntity: IndexedEntity {

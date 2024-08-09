@@ -5,11 +5,19 @@ import intelligence
 @available(iOS 16.0, *)
 struct RepresentableQuery: EntityQuery {
   func entities(for identifiers: [String]) async throws -> [RepresentableEntity] {
-    return IntelligencePlugin.storage.get(for: identifiers).map() { entity in
+    return IntelligencePlugin.storage.get(for: identifiers).map() { item in
       return RepresentableEntity(
-        displayRepresentation: DisplayRepresentation(stringLiteral: "Repr"),
-        id: entity.id,
-        representation: EntityProperty(title: LocalizedStringResource(stringLiteral: entity.representation))
+        id: item.id,
+        representation: item.representation
+      )
+    }
+  }
+  
+  func suggestedEntities() async throws -> [RepresentableEntity] {
+    return IntelligencePlugin.storage.get().map() { item in
+      return RepresentableEntity(
+        id: item.id,
+        representation: item.representation
       )
     }
   }
@@ -18,11 +26,10 @@ struct RepresentableQuery: EntityQuery {
 @available(iOS 16.0, *)
 extension RepresentableQuery: EnumerableEntityQuery {
   func allEntities() async throws -> [RepresentableEntity] {
-    return IntelligencePlugin.storage.get().map() { entity in
+    return IntelligencePlugin.storage.get().map() { item in
       return RepresentableEntity(
-        displayRepresentation: DisplayRepresentation(stringLiteral: "Repr"),
-        id: entity.id,
-        representation: EntityProperty(title: LocalizedStringResource(stringLiteral: entity.representation))
+        id: item.id,
+        representation: item.representation
       )
     }
   }

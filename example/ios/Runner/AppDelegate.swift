@@ -4,7 +4,7 @@ import intelligence
 import UIKit
 
 @available(iOS 18.0, *)
-@UIApplicationMain
+@main
 @objc class AppDelegate: FlutterAppDelegate {
   override func application(
     _ application: UIApplication,
@@ -13,9 +13,12 @@ import UIKit
     GeneratedPluginRegistrant.register(with: self)
     IntelligencePlugin.spotlightCore.attachEntityMapper() { item in
       return RepresentableEntity(
-        displayRepresentation: DisplayRepresentation(stringLiteral:item.representation),
         id: item.id,
-        representation: EntityProperty(title: LocalizedStringResource(stringLiteral: item.representation)))
+        representation: item.representation
+      )
+    }
+    IntelligencePlugin.storage.attachListener {
+      OpenFavoritesShortcuts.updateAppShortcutParameters()
     }
     return super.application(application, didFinishLaunchingWithOptions: launchOptions)
   }

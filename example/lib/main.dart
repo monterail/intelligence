@@ -1,4 +1,4 @@
-import 'package:flutter/material.dart';
+import 'package:flutter/cupertino.dart';
 import 'dart:async';
 
 import 'package:flutter/services.dart';
@@ -29,7 +29,10 @@ class _MyAppState extends State<MyApp> {
   Future<void> init() async {
     try {
       await _intelligencePlugin.populateIntelligence(const [
-        Representable(representation: 'John Doe', id: 'ABC1'),
+        Representable(representation: 'Grape', id: 'grp'),
+        Representable(representation: 'Orange', id: 'org'),
+        Representable(representation: 'Pear', id: 'per'),
+        Representable(representation: 'Strawberry', id: 'sbr'),
       ]);
       _intelligencePlugin.selectedStream().listen((item) {
         setState(() {
@@ -43,18 +46,20 @@ class _MyAppState extends State<MyApp> {
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      home: Scaffold(
-        appBar: AppBar(
-          title: const Text('Intelligence example app'),
-        ),
-        body: Center(
-          child: ListView.builder(
-            itemCount: _receivedItems.length,
-            itemBuilder: (_, index) => ListTile(
-              title: Text(_receivedItems[index]),
+    return CupertinoApp(
+      home: CupertinoPageScaffold(
+        child: CustomScrollView(
+          slivers: <Widget>[
+            const CupertinoSliverNavigationBar(
+              leading: Icon(CupertinoIcons.captions_bubble_fill),
+              largeTitle: Text('Intelligence demo'),
             ),
-          ),
+            SliverList.builder(
+              itemBuilder: (_, index) =>
+                  CupertinoListTile(title: Text(_receivedItems[index])),
+              itemCount: _receivedItems.length,
+            )
+          ],
         ),
       ),
     );

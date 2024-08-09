@@ -9,13 +9,13 @@ import Foundation
 import AppIntents
 import intelligence
 
-@available(iOS 16, *)
-struct OpenRepresentable: AppIntent {
+@available(iOS 18.0, *)
+@AssistantIntent(schema: .mail.message)
+struct OpenRepresentableAssistant: OpenIntent {
   static var title: LocalizedStringResource = "Open Representable"
-  static var openAppWhenRun: Bool = true
-    
+  
   @Parameter(title: "Item")
-  var target: RepresentableEntity
+  var target: RepresentableAssistantEntity
   
   @MainActor
   func perform() async throws -> some IntentResult {
@@ -25,17 +25,5 @@ struct OpenRepresentable: AppIntent {
   
   static var parameterSummary: some ParameterSummary {
     Summary("Open \(\.$target)")
-  }
-}
-
-
-struct OpenFavoritesShortcuts: AppShortcutsProvider {
-  static var appShortcuts: [AppShortcut] {
-    AppShortcut(
-      intent: OpenRepresentable(),
-      phrases: [
-        "Open \(\.$target) in \(.applicationName)"
-      ]
-    )
   }
 }

@@ -1,6 +1,12 @@
 import SQLite
 
-public struct IntelligenceStorage {
+public class IntelligenceStorage {
+  var onUpdated: (() -> Void)?
+
+  public func attachListener(onUpdated: @escaping () -> Void) {
+    self.onUpdated = onUpdated
+  }
+  
   private func getDbPath() -> String {
     var applicationDirectory = URL.documentsDirectory
     applicationDirectory.append(component: "intelligence.sqlite3")
@@ -34,6 +40,8 @@ public struct IntelligenceStorage {
       let db = try getDb()
       let entitiesTable = try getEntitiesTable(db: db)
       
+      try db.run(entitiesTable.delete())
+      
       let externalId = SQLite.Expression<String>("externalId")
       let representation = SQLite.Expression<String>("representation")
       
@@ -45,6 +53,9 @@ public struct IntelligenceStorage {
       }
     } catch {
       print("Unable to set entities for intelligence: \(error)")
+    }
+    if let onUpdated = onUpdated {
+      onUpdated()
     }
   }
   
