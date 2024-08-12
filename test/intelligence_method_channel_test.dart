@@ -24,6 +24,6 @@ void main() {
   });
 
   test('getPlatformVersion', () async {
-    expect(await platform.populateIntelligence(), '42');
+    expect(await platform.populate(), '42');
   });
 }

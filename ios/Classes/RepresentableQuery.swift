@@ -1,4 +1,3 @@
-import Foundation
 import AppIntents
 import intelligence
 

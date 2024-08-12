@@ -3,15 +3,16 @@ import AppIntents
 import CoreSpotlight
 import MobileCoreServices
 
+
 @available(iOS 18.0, *)
 public class IntelligenceSearchableItems {
-  var mapper: ((_ item: (id: String, representation: String)) -> any IndexedEntity)?
+  var mapper: ((_ item: IntelligenceItem) -> any IndexedEntity)?
 
   public func attachEntityMapper(mapper: @escaping (_ item: (id: String, representation: String)) -> any IndexedEntity) {
     self.mapper = mapper
   }
   
-  public func index(items: [(id: String, representation: String)]) {
+  public func index(items: [IntelligenceItem]) {
     let searchableItems = items.map { item -> CSSearchableItem in
       let attributeSet = CSSearchableItemAttributeSet(itemContentType: kUTTypeText as String)
       attributeSet.title = item.representation

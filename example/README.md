@@ -1,16 +1,17 @@
-# intelligence_example
+# Intelligence plugin example usage
 
-Demonstrates how to use the intelligence plugin.
+Achieves:
 
-## Getting Started
+- Exposing app-specific entities to the Shortcuts app, Siri, and Apple Intelligence
+- Feeding the selection as a variable back to the Flutter application
+- Enabling Siri to understand voice commands to run the defined App Intents
+- Feeding the app data to Spotlight search with App Entity attached (iOS 18+)
 
-This project is a starting point for a Flutter application.
+Run with:
 
-A few resources to get you started if this is your first Flutter project:
+```shell
+flutter run
+```
 
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
-
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+<img src="../doc/assets/recipe2/query_siri.png" alt="Siri's 'Draw a circle in Intelligence' query visualisation" width="45%" align="left" />
+<img src="../doc/assets/recipe2/query_result.png" alt="Siri's action of opening the defined App Entity with the 'circle' entity as a parameter" width="45%" align="left" />

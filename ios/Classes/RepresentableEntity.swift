@@ -1,4 +1,3 @@
-import Foundation
 import CoreSpotlight
 import AppIntents
 
@@ -6,7 +5,7 @@ import AppIntents
 struct RepresentableEntity: AppEntity {
   static var defaultQuery: RepresentableQuery = RepresentableQuery()
   
-  static var typeDisplayRepresentation = TypeDisplayRepresentation(name: "Item")
+  static var typeDisplayRepresentation = TypeDisplayRepresentation(name: "Shape")
   
   var displayRepresentation: DisplayRepresentation {
     DisplayRepresentation(stringLiteral: representation)

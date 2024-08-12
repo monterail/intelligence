@@ -1,40 +1,32 @@
-//
-//  ExampleAppIntent.swift
-//  intelligence
-//
-//  Created by Marcin Wróblewski on 29/07/2024.
-//
-
-import Foundation
 import AppIntents
 import intelligence
 
 @available(iOS 16, *)
-struct OpenRepresentable: AppIntent {
-  static var title: LocalizedStringResource = "Open Representable"
+struct ExampleAppIntent: AppIntent {
+  static var title: LocalizedStringResource = "Draw shape"
   static var openAppWhenRun: Bool = true
     
-  @Parameter(title: "Item")
+  @Parameter(title: "Shape")
   var target: RepresentableEntity
   
   @MainActor
   func perform() async throws -> some IntentResult {
-    IntelligencePlugin.linksNotifier.pushLink(target.id)
+    IntelligencePlugin.notifier.push(target.id)
     return .result()
   }
   
   static var parameterSummary: some ParameterSummary {
-    Summary("Open \(\.$target)")
+    Summary("Draw \(\.$target)")
   }
 }
 
 
-struct OpenFavoritesShortcuts: AppShortcutsProvider {
+struct AppShortcuts: AppShortcutsProvider {
   static var appShortcuts: [AppShortcut] {
     AppShortcut(
-      intent: OpenRepresentable(),
+      intent: ExampleAppIntent(),
       phrases: [
-        "Open \(\.$target) in \(.applicationName)"
+        "Draw a \(\.$target) in \(.applicationName)"
       ]
     )
   }

@@ -8,7 +8,7 @@ class MockIntelligencePlatform
     with MockPlatformInterfaceMixin
     implements IntelligencePlatform {
   @override
-  Future<String?> populateIntelligence() => Future.value('42');
+  Future<String?> populate() => Future.value('42');
 }
 
 void main() {

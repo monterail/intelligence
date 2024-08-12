@@ -35,7 +35,7 @@ public class IntelligenceStorage {
     return table
   }
   
-  public func set(items: [(id: String, representation: String)] ) {
+  public func set(items: [IntelligenceItem] ) {
     do {
       let db = try getDb()
       let entitiesTable = try getEntitiesTable(db: db)
@@ -59,7 +59,7 @@ public class IntelligenceStorage {
     }
   }
   
-  public func get() -> [(id: String, representation: String)] {
+  public func get() -> [IntelligenceItem] {
     do {
       let db = try getDb()
       let entitiesTable = try getEntitiesTable(db: db)
@@ -80,7 +80,7 @@ public class IntelligenceStorage {
     }
   }
   
-  public func get(for identifiers: [String]) -> [(id: String, representation: String)] {
+  public func get(for identifiers: [String]) -> [IntelligenceItem] {
     do {
       let db = try getDb()
       let entitiesTable = try getEntitiesTable(db: db)

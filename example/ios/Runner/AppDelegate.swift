@@ -3,7 +3,6 @@ import AppIntents
 import intelligence
 import UIKit
 
-@available(iOS 18.0, *)
 @main
 @objc class AppDelegate: FlutterAppDelegate {
   override func application(
@@ -11,14 +10,16 @@ import UIKit
     didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?
   ) -> Bool {
     GeneratedPluginRegistrant.register(with: self)
-    IntelligencePlugin.spotlightCore.attachEntityMapper() { item in
-      return RepresentableEntity(
-        id: item.id,
-        representation: item.representation
-      )
+    if #available(iOS 18.0, *) {
+      IntelligencePlugin.spotlightCore.attachEntityMapper() { item in
+        return RepresentableEntity(
+          id: item.id,
+          representation: item.representation
+        )
+      }
     }
     IntelligencePlugin.storage.attachListener {
-      OpenFavoritesShortcuts.updateAppShortcutParameters()
+      AppShortcuts.updateAppShortcutParameters()
     }
     return super.application(application, didFinishLaunchingWithOptions: launchOptions)
   }

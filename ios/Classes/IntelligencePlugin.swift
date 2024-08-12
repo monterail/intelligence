@@ -2,14 +2,14 @@ import Flutter
 import UIKit
 
 public class IntelligencePlugin: NSObject, FlutterPlugin {
-  public static let linksNotifier = LinksPushOnlyStreamHandler()
+  public static let notifier = SelectionsPushOnlyStreamHandler()
   
   public static func register(with registrar: FlutterPluginRegistrar) {
     let channel = FlutterMethodChannel(name: "intelligence", binaryMessenger: registrar.messenger())
     let instance = IntelligencePlugin()
     registrar.addMethodCallDelegate(instance, channel: channel)
     let eventChannel = FlutterEventChannel(name: "intelligence/links", binaryMessenger: registrar.messenger())
-    eventChannel.setStreamHandler(linksNotifier)
+    eventChannel.setStreamHandler(notifier)
   }
   
   public func handle(_ call: FlutterMethodCall, result: @escaping FlutterResult) {
@@ -56,28 +56,28 @@ struct PopulateItem: Decodable {
   let id: String;
   let representation: String;
   
-  func forStorage() -> (id: String, representation: String) {
+  func forStorage() -> IntelligenceItem {
     return (id: id, representation: representation)
   }
 }
 
-public class LinksPushOnlyStreamHandler: NSObject, FlutterStreamHandler {
+public class SelectionsPushOnlyStreamHandler: NSObject, FlutterStreamHandler {
   var sink: FlutterEventSink?
   
-  var linksBuffer: [String] = []
+  var selectionsBuffer: [String] = []
   
-  public func pushLink(_ link: String) {
-    linksBuffer.append(link)
+  public func push(_ selection: String) {
+    selectionsBuffer.append(selection)
     if let sink {
-      flushLinksBuffer(sink: sink)
+      flushSelectionsBuffer(sink: sink)
     }
   }
   
-  func flushLinksBuffer(sink: FlutterEventSink) {
-    for link in linksBuffer {
+  func flushSelectionsBuffer(sink: FlutterEventSink) {
+    for link in selectionsBuffer {
       sink(link)
     }
-    linksBuffer = []
+    selectionsBuffer = []
   }
   
   public func onListen(withArguments arguments: Any?, eventSink events: @escaping FlutterEventSink) -> FlutterError? {

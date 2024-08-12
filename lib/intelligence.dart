@@ -3,9 +3,9 @@ import 'package:intelligence/model/representable.dart';
 import 'intelligence_platform_interface.dart';
 
 class Intelligence {
-  Future<void> populateIntelligence(List<Representable> items) =>
-      IntelligencePlatform.instance.populateIntelligence(items);
+  Future<void> populate(List<Representable> items) =>
+      IntelligencePlatform.instance.populate(items);
 
-  Stream<String> selectedStream() =>
-      IntelligencePlatform.instance.selectedStream();
+  Stream<String> selectionsStream() =>
+      IntelligencePlatform.instance.selectionsStream();
 }
