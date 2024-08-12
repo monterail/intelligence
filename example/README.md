@@ -13,5 +13,5 @@ Run with:
 flutter run
 ```
 
-<img src="https://raw.githubusercontent.com/monterail/intelligence/main/doc/assets/recipe2/query_siri.png" alt="Siri's 'Draw a circle in Intelligence' query visualisation" width="45%" align="left" />
-<img src="https://raw.githubusercontent.com/monterail/intelligence/main/doc/assets/recipe2/query_result.png" alt="Siri's action of opening the defined App Entity with the 'circle' entity as a parameter" width="45%" align="left" />
+<img src="https://raw.githubusercontent.com/monterail/intelligence/main/doc/assets/recipe2/query_siri.jpg" alt="Siri's 'Draw a circle in Intelligence' query visualisation" width="45%" align="left" />
+<img src="https://raw.githubusercontent.com/monterail/intelligence/main/doc/assets/recipe2/query_result.jpg" alt="Siri's action of opening the defined App Entity with the 'circle' entity as a parameter" width="45%" align="left" />
