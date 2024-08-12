@@ -2,7 +2,7 @@
 
 [![MIT license](https://img.shields.io/badge/license-MIT-blue.svg)](./LICENSE)
 [![PRs Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen.svg)](.)
-<img src="./doc/assets/monterail_logo.svg" alt="Monterail's logo" width="25%" height="100" align="right"/>
+<img src="https://raw.githubusercontent.com/monterail/intelligence/main/doc/assets/monterail_logo.svg" alt="Monterail's logo" width="25%" height="100" align="right"/>
 
 Add support for Apple's AppIntents framework to your Flutter application. For details on how to add integration with Siri, Shortcuts app, and Apple Intelligence, see [Recipes](#recipes).
 
@@ -40,7 +40,7 @@ Will let your app to be automated via Shortcuts workflow.
 
 - Open the iOS project in Xcode
 
-<img src="./doc/assets/recipe1/open_in_xcode.png" alt="Open in Xcode" width="60%" />
+<img src="https://raw.githubusercontent.com/monterail/intelligence/main/doc/assets/recipe1/open_in_xcode.png" alt="Open in Xcode" width="60%" />
 
 - Add a new Swift file and paste:
 
@@ -64,7 +64,7 @@ Switch out the struct's name, title, and the `.push`ed value to ones that match 
 
 Once added, your App Intent will show up in the Shortcuts app:
 
-<img src="./doc/assets/recipe1/draw_intent.jpeg" alt="Example of a Shortcuts app workflow including an automation step declared in this guide" width="60%" />
+<img src="https://raw.githubusercontent.com/monterail/intelligence/main/doc/assets/recipe1/draw_intent.jpeg" alt="Example of a Shortcuts app workflow including an automation step declared in this guide" width="60%" />
 
 </details>
 
@@ -89,7 +89,7 @@ struct OpenHeartShortcuts: AppShortcutsProvider {
 
 Once deployed to the device, Siri can understand the trigger phrase and run the App Intent declared above:
 
-<img src="./doc/assets/recipe1/siri_command.jpeg" alt="Siri's response to a query 'What can Intelligence do?' including defined phrase to run the App Intent declared in this guide" width="60%" />
+<img src="https://raw.githubusercontent.com/monterail/intelligence/main/doc/assets/recipe1/siri_command.jpeg" alt="Siri's response to a query 'What can Intelligence do?' including defined phrase to run the App Intent declared in this guide" width="60%" />
 
 </details>
 
@@ -235,7 +235,7 @@ await IntelligencePlugin().populate(const [
 
 Result:
 
-<img src="./doc/assets/recipe2/query_siri.png" alt="Siri's 'Draw a circle in Intelligence' query visualisation" width="45%" align="left" />
-<img src="./doc/assets/recipe2/query_result.png" alt="Siri's action of opening the defined App Entity with the 'circle' entity as a parameter" width="45%" align="left" />
+<img src="https://raw.githubusercontent.com/monterail/intelligence/main/doc/assets/recipe2/query_siri.png" alt="Siri's 'Draw a circle in Intelligence' query visualisation" width="45%" align="left" />
+<img src="https://raw.githubusercontent.com/monterail/intelligence/main/doc/assets/recipe2/query_result.png" alt="Siri's action of opening the defined App Entity with the 'circle' entity as a parameter" width="45%" align="left" />
 
 </details>
