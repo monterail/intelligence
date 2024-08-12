@@ -26,7 +26,8 @@ abstract class IntelligencePlatform extends PlatformInterface {
 
   Future<void> populate(List<Representable> items) {
     throw UnimplementedError(
-        'populateIntelligence() has not been implemented.');
+      'populateIntelligence() has not been implemented.',
+    );
   }
 
   Stream<String> selectionsStream() {
