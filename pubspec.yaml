@@ -1,7 +1,13 @@
 name: intelligence
-description: "Apple's AppIntent integration plugin. Let your app be understood by Siri, the Shortcuts app, Apple Intelligence, and more.s"
-version: 0.0.1-dev.0
+description: "Apple's AppIntent integration plugin. Let your app be understood by Siri, the Shortcuts app, Apple Intelligence, and more."
+version: 0.0.1-dev.1
 repository: https://github.com/monterail/intelligence
+screenshots:
+  - description: 'Example App Intent built with this plugin used in the Shortcuts workflow.'
+    path: ./doc/assets/recipe1/draw_intent.jpg
+topics:
+  - ai
+  - os-integration
 
 environment:
   sdk: '>=3.4.3 <4.0.0'

@@ -1,4 +1,4 @@
-# Flutter SDK for GitHub Actions
+# Intelligence
 
 [![MIT license](https://img.shields.io/badge/license-MIT-blue.svg)](./LICENSE)
 [![PRs Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen.svg)](.)
