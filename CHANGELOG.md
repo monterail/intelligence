@@ -1,3 +1,7 @@
+## 0.0.1-dev.2
+
+* docs: add dartdocs
+
 ## 0.0.1-dev.1
 
 * docs: fix readme header
