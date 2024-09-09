@@ -4,7 +4,7 @@ version: 0.0.1-dev.1
 repository: https://github.com/monterail/intelligence
 screenshots:
   - description: 'Example App Intent built with this plugin used in the Shortcuts workflow.'
-    path: ./doc/assets/recipe1/draw_intent.jpg
+    path: doc/assets/recipe1/draw_intent.jpg
 topics:
   - ai
   - os-integration
