@@ -6,8 +6,10 @@ import MobileCoreServices
 
 @available(iOS 18.0, *)
 public class IntelligenceSearchableItems {
+  @available(iOS 18.0, *)
   var mapper: ((_ item: IntelligenceItem) -> any IndexedEntity)?
 
+  @available(iOS 18.0, *)
   public func attachEntityMapper(mapper: @escaping (_ item: (id: String, representation: String)) -> any IndexedEntity) {
     self.mapper = mapper
   }

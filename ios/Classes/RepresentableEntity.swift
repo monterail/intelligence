@@ -15,6 +15,7 @@ struct RepresentableEntity: AppEntity {
   let representation: String
 }
 
+@available(iOS 18.0, *)
 extension RepresentableEntity: IndexedEntity {
   var attributeSet: CSSearchableItemAttributeSet {
     let attributes = CSSearchableItemAttributeSet()
