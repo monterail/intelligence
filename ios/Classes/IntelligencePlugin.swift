@@ -64,28 +64,35 @@ struct PopulateItem: Decodable {
 public class SelectionsPushOnlyStreamHandler: NSObject, FlutterStreamHandler {
   var sink: FlutterEventSink?
   
-  var selectionsBuffer: [String] = []
-  
   public func push(_ selection: String) {
-    selectionsBuffer.append(selection)
-    if let sink {
-      flushSelectionsBuffer(sink: sink)
+    // Save to UserDefaults
+    var storedSelections = UserDefaults.standard.array(forKey: "storedSelections") as? [String] ?? []
+    storedSelections.append(selection)
+    UserDefaults.standard.set(storedSelections, forKey: "storedSelections")
+    
+    // Send directly to the sink if available
+    if let sink = sink {
+      sink(selection)
     }
-  }
-  
-  func flushSelectionsBuffer(sink: FlutterEventSink) {
-    for link in selectionsBuffer {
-      sink(link)
-    }
-    selectionsBuffer = []
   }
   
   public func onListen(withArguments arguments: Any?, eventSink events: @escaping FlutterEventSink) -> FlutterError? {
     sink = events
+  
+    // Retrieve persisted events from UserDefaults and send them
+    if let storedSelections = UserDefaults.standard.array(forKey: "storedSelections") as? [String] {
+      for selection in storedSelections {
+        sink?(selection)
+      }
+      // Clear persisted events after sending
+      UserDefaults.standard.removeObject(forKey: "storedSelections")
+    }
+  
     return nil
   }
   
   public func onCancel(withArguments arguments: Any?) -> FlutterError? {
+    sink = nil
     return nil
   }
 }
