@@ -235,7 +235,11 @@ await IntelligencePlugin().populate(const [
 
 Result:
 
-<img src="https://raw.githubusercontent.com/monterail/intelligence/main/doc/assets/recipe2/query_siri.jpg" alt="Siri's 'Draw a circle in Intelligence' query visualisation" width="45%" align="left" />
-<img src="https://raw.githubusercontent.com/monterail/intelligence/main/doc/assets/recipe2/query_result.jpg" alt="Siri's action of opening the defined App Entity with the 'circle' entity as a parameter" width="45%" align="left" />
+![Siri query usage example](https://raw.githubusercontent.com/monterail/intelligence/main/doc/assets/recipe2/query_example.png)
 
 </details>
+
+## Further reading
+
+- [Apple's App Intents docs](https://developer.apple.com/documentation/appintents/)
+- [Advanced `intelligence` use-cases](https://www.monterail.com/blog/flutter-development-services-OS-integration)

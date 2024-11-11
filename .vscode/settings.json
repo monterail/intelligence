@@ -1,5 +1,6 @@
 {
   "cSpell.words": [
     "unawaited"
-  ]
+  ],
+  "dart.flutterSdkPath": ".fvm/versions/3.24.4"
 }

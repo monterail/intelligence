@@ -69,11 +69,11 @@ public class SelectionsPushOnlyStreamHandler: NSObject, FlutterStreamHandler {
   public func push(_ selection: String) {
     selectionsBuffer.append(selection)
     if let sink {
-      flushSelectionsBuffer(sink: sink)
+      flushSelectionsBuffer(sink)
     }
   }
   
-  func flushSelectionsBuffer(sink: FlutterEventSink) {
+  func flushSelectionsBuffer(_ sink: FlutterEventSink) {
     for link in selectionsBuffer {
       sink(link)
     }
@@ -82,10 +82,12 @@ public class SelectionsPushOnlyStreamHandler: NSObject, FlutterStreamHandler {
   
   public func onListen(withArguments arguments: Any?, eventSink events: @escaping FlutterEventSink) -> FlutterError? {
     sink = events
+    flushSelectionsBuffer(events)
     return nil
   }
   
   public func onCancel(withArguments arguments: Any?) -> FlutterError? {
+    sink = nil
     return nil
   }
 }

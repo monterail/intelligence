@@ -1,3 +1,10 @@
+## 0.1.0
+
+* fix: ensure the delivery of selections triggering a cold app startup
+* tool: add fvm
+
+Thanks [JErazo7](https://github.com/JErazo7)!
+
 ## 0.0.1-dev.2
 
 * docs: add dartdocs
