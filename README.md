@@ -14,6 +14,23 @@ Copy and paste the following snippet into your shell when in the target project 
 dart pub add intelligence
 ```
 
+## iOS Configuration
+After installing the package, you need to set the minimum iOS version 16.0 on XCode.
+
+Follow these steps:
+- Open the iOS project in Xcode
+
+  <img src="https://raw.githubusercontent.com/monterail/intelligence/main/doc/assets/recipe1/open_in_xcode.jpg" alt="Open in Xcode" width="60%" />
+
+
+- Click on Runner & then general tab
+
+  ![Runner & general tab](/doc/assets/readme/runner_general_xcode.png)
+
+- Under the General tab & minimum deployments section, set the iOS version to atleast 16.0
+    ![iOS version](/doc/assets/readme/ios_version.png)
+
+
 ## Usage
 
 To add support for AppIntents framework, you will have to perform one-time setup which differs for different use-cases. See [Recipes](#recipes) for more details.
