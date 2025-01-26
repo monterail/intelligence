@@ -18,6 +18,29 @@ dart pub add intelligence
 
 To add support for AppIntents framework, you will have to perform one-time setup which differs for different use-cases. See [Recipes](#recipes) for more details.
 
+### iOS Configuration
+After installing the package, you need to set the minimum iOS version to 16.0 on XCode.
+
+For more details, follow these steps:
+
+<details>
+
+- Open the iOS project in Xcode
+
+  <img src="https://raw.githubusercontent.com/monterail/intelligence/main/doc/assets/recipe1/open_in_xcode.jpg" alt="Open in Xcode" width="60%" />
+
+
+- Click on Runner & then general tab
+
+  ![Runner & general tab](/doc/assets/readme/runner_general_xcode.png)
+
+- Under the General tab & minimum deployments section, set the iOS version to atleast 16.0
+    ![iOS version](/doc/assets/readme/ios_version.png)
+
+</details>
+
+<br>
+
 Once set up, the plugin will let you act on each App Intent trigger.
 
 E.g. while setting the selection listener in a Stateful widget:
