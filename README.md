@@ -32,14 +32,14 @@ For more details, follow these steps:
 
 - Click on Runner & then general tab
 
-  ![Runner & general tab](/doc/assets/readme/runner_general_xcode.png)
+  ![Runner & general tab](https://raw.githubusercontent.com/monterail/intelligence/main/doc/assets/readme/runner_general_xcode.png)
 
 - Under the General tab & minimum deployments section, set the iOS version to atleast 16.0
-    ![iOS version](/doc/assets/readme/ios_version.png)
+    ![iOS version](https://raw.githubusercontent.com/monterail/intelligence/main/doc/assets/readme/ios_version.png)
 
 </details>
 
-<br>
+<br />
 
 Once set up, the plugin will let you act on each App Intent trigger.
 
