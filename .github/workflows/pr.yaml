@@ -1,0 +1,24 @@
+name: Pull request updated
+
+on:
+  pull_request:
+    branches:
+      - development
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v4
+
+    - name: Install Flutter
+      uses: monterail/flutter-action@v2
+
+    - name: Install dependencies
+      run: flutter pub get
+
+    - name: Lint
+      run: dart format --set-exit-if-changed . && flutter analyze
+
