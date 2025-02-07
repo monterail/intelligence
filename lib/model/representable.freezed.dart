@@ -23,8 +23,12 @@ mixin _$Representable {
   String get representation => throw _privateConstructorUsedError;
   String get id => throw _privateConstructorUsedError;
 
+  /// Serializes this Representable to a JSON map.
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
-  @JsonKey(ignore: true)
+
+  /// Create a copy of Representable
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   $RepresentableCopyWith<Representable> get copyWith =>
       throw _privateConstructorUsedError;
 }
@@ -48,6 +52,8 @@ class _$RepresentableCopyWithImpl<$Res, $Val extends Representable>
   // ignore: unused_field
   final $Res Function($Val) _then;
 
+  /// Create a copy of Representable
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -86,6 +92,8 @@ class __$$RepresentableImplCopyWithImpl<$Res>
       _$RepresentableImpl _value, $Res Function(_$RepresentableImpl) _then)
       : super(_value, _then);
 
+  /// Create a copy of Representable
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -133,11 +141,13 @@ class _$RepresentableImpl implements _Representable {
             (identical(other.id, id) || other.id == id));
   }
 
-  @JsonKey(ignore: true)
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   int get hashCode => Object.hash(runtimeType, representation, id);
 
-  @JsonKey(ignore: true)
+  /// Create a copy of Representable
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   @pragma('vm:prefer-inline')
   _$$RepresentableImplCopyWith<_$RepresentableImpl> get copyWith =>
@@ -163,8 +173,11 @@ abstract class _Representable implements Representable {
   String get representation;
   @override
   String get id;
+
+  /// Create a copy of Representable
+  /// with the given fields replaced by the non-null parameter values.
   @override
-  @JsonKey(ignore: true)
+  @JsonKey(includeFromJson: false, includeToJson: false)
   _$$RepresentableImplCopyWith<_$RepresentableImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }
